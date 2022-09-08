@@ -16,7 +16,7 @@
 </template>
 
 <script>
-
+import router from '../router/index.js'
 export default ({
   name: 'LoginPage',
   data () {
@@ -31,7 +31,7 @@ export default ({
     login () {
       if (this.input.username !== '' && this.input.password !== '') {
         if (this.input.username === this.input.password) {
-          console.log('Login successful')
+          router.push('info')
         } else {
           console.log('The Username or password is incorrect')
         }
