@@ -29,8 +29,11 @@ export default ({
   },
   methods: {
     login () {
-      if (this.input.username !== '' && this.input.password !== '') {
-        if (this.input.username === this.input.password) {
+      const username = this.input.username
+      const password = this.input.password
+
+      if (username !== '' && password !== '') {
+        if (username === password) {
           router.push('info')
         } else {
           console.log('The Username or password is incorrect')
@@ -38,6 +41,12 @@ export default ({
       } else {
         console.log('Please Enter username and password')
       }
+    },
+    newUser: function () {
+      this.$store.commit('addUser', {
+        username: this.username,
+        password: this.password
+      })
     }
   }
 })
