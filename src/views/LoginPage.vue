@@ -19,6 +19,7 @@
 
 <script>
 import router from '../router/index.js'
+import store from '../store/index.js'
 export default ({
   name: 'LoginPage',
   data () {
@@ -49,7 +50,7 @@ export default ({
       }
     },
     newUser: function () {
-      this.$store.commit('addUser', {
+      store.commit('addUser', {
         username: this.username,
         password: this.password
       })
