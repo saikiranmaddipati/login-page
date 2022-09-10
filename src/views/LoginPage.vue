@@ -11,7 +11,7 @@
         <input type="password" id="password" v-model="input.password" placeholder="Password"/>
       </div>
         <br/>
-        <button type="submit" v-on:click="login()" class="button">Login</button>
+        <button v-on:click="login()" class="button">Login</button>
         <p v-if="showError" id="error">Username or Password is incorrect</p>
         <p v-if="showOutput">Please Enter username and password</p>
     </div>
