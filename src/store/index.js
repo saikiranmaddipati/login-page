@@ -7,8 +7,8 @@ export default new Vuex.Store({
   state: {
     users: [
       {
-        username: 'saikiran',
-        password: 'saikiran'
+        username: null,
+        password: null
       }
     ]
   },

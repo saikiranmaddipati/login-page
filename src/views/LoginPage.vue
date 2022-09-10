@@ -11,7 +11,9 @@
         <input type="password" id="password" v-model="input.password" placeholder="Password"/>
       </div>
         <br/>
-        <button type="submit" v-on:click="login()">Login</button>
+        <button type="submit" v-on:click="login()" class="button">Login</button>
+        <p v-if="showError" id="error">Username or Password is incorrect</p>
+        <p v-if="showOutput">Please Enter username and password</p>
     </div>
 </template>
 
@@ -24,7 +26,9 @@ export default ({
       input: {
         username: '',
         password: ''
-      }
+      },
+      showError: false,
+      showOutput: false
     }
   },
   methods: {
@@ -37,9 +41,11 @@ export default ({
           router.push('info')
         } else {
           console.log('The Username or password is incorrect')
+          this.showError = true
         }
       } else {
         console.log('Please Enter username and password')
+        this.showOutput = true
       }
     },
     newUser: function () {
@@ -51,3 +57,14 @@ export default ({
   }
 })
 </script>
+
+<style scoped>
+.button{
+  height: 40px;
+  width: 120px;
+  background-color: blue;
+  font-family: "Roboto";
+  font-size: 20px;
+  border-radius: 10px
+}
+</style>
