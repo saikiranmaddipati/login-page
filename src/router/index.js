@@ -2,8 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LoginPage from '../views/LoginPage.vue'
 import InfoPage from '../views/InfoPage.vue'
+import axios from 'axios'
 
 Vue.use(VueRouter)
+
+axios.defaults.baseURl = 'http://localhost:8080/api/'
 
 const routes = [
   {

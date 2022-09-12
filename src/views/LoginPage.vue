@@ -19,7 +19,8 @@
 
 <script>
 import router from '../router/index.js'
-import store from '../store/index.js'
+import { mapGetters } from 'vuex'
+
 export default ({
   name: 'LoginPage',
   data () {
@@ -32,8 +33,19 @@ export default ({
       showOutput: false
     }
   },
+  computed: {
+    ...mapGetters(['allUsers'])
+  },
   methods: {
     login () {
+      this.$store.dispatch('LOGIN', {
+        username: this.username,
+        password: this.password
+      })
+        .then(success => {
+          this.$router.push('/')
+        })
+
       const username = this.input.username
       const password = this.input.password
 
@@ -42,18 +54,11 @@ export default ({
           router.push('info')
         } else {
           console.log('The Username or password is incorrect')
-          this.showError = true
         }
       } else {
         console.log('Please Enter username and password')
         this.showOutput = true
       }
-    },
-    newUser: function () {
-      store.commit('addUser', {
-        username: this.username,
-        password: this.password
-      })
     }
   }
 })
