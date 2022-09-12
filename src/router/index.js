@@ -6,7 +6,7 @@ import axios from 'axios'
 
 Vue.use(VueRouter)
 
-axios.defaults.baseURl = 'http://localhost:8080/api/'
+axios.defaults.baseURL = 'http://localhost:8000/api/'
 
 const routes = [
   {

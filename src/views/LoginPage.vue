@@ -39,13 +39,12 @@ export default ({
   methods: {
     login () {
       this.$store.dispatch('LOGIN', {
-        username: this.username,
-        password: this.password
+        username: this.input.username,
+        password: this.input.password
       })
         .then(success => {
           this.$router.push('/')
         })
-
       const username = this.input.username
       const password = this.input.password
 

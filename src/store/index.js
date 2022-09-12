@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import { reject, resolve } from 'core-js/fn/promise'
 
 Vue.use(Vuex)
 
@@ -21,18 +22,21 @@ export default new Vuex.Store({
     allUsers: (state) => state.users
   },
   mutations: {
-    newUser: (state) => state.users.unshift()
+    newUser: (state, user) => state.users.unshift(user)
   },
   actions: {
-    async LogIn ({ commit }, state) {
-      const response = await axios.post('jsonplaceholder.typicode.come/users', state.users)
-        .then(function (response) {
-          console.log(response)
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-      commit('newUser', response.data)
+    LOGIN: ({ commit }, payload) => {
+      return new Promise((resolve, reject) => {
+        axios.post('login_check', payload)
+          .then(({ data, status }) => {
+            if (status === 200) {
+              resolve(true)
+            }
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
     }
   },
   modules: {
