@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
-import { reject, resolve } from 'core-js/fn/promise'
 
 Vue.use(Vuex)
 
@@ -26,7 +24,7 @@ export default new Vuex.Store({
   },
   actions: {
     LOGIN: ({ commit }, payload) => {
-      return new Promise((resolve, reject) => {
+      /* return new Promise((resolve, reject) => {
         axios.post('login_check', payload)
           .then(({ data, status }) => {
             if (status === 200) {
@@ -36,7 +34,7 @@ export default new Vuex.Store({
           .catch(error => {
             reject(error)
           })
-      })
+      }) */
     }
   },
   modules: {

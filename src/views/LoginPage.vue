@@ -38,18 +38,19 @@ export default ({
   },
   methods: {
     login () {
-      this.$store.dispatch('LOGIN', {
+      /* this.$store.dispatch('LOGIN', {
         username: this.input.username,
         password: this.input.password
       })
         .then(success => {
           this.$router.push('/')
-        })
+        }) */
       const username = this.input.username
       const password = this.input.password
 
       if (username !== '' && password !== '') {
-        if (username === password) {
+        if (username === 'saikiran' && password === 'pass@123') {
+          // store the username and password in vuex store
           router.push('info')
         } else {
           console.log('The Username or password is incorrect')
