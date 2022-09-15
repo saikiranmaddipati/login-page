@@ -51,6 +51,14 @@ export default ({
       if (username !== '' && password !== '') {
         if (username === 'saikiran' && password === 'pass@123') {
           // store the username and password in vuex store
+          this.$store.dispatch('LOGIN', {
+            username: username,
+            password: password
+          })
+          const name = this.$store.state.users.username
+          const password1 = this.$store.state.users.password
+          console.log(name)
+          console.log(password1)
           router.push('info')
         } else {
           console.log('The Username or password is incorrect')

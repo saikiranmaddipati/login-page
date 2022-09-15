@@ -7,12 +7,8 @@ export default new Vuex.Store({
   state: {
     users: [
       {
-        username: 'kiran',
-        password: 'kiran'
-      },
-      {
-        username: 'sai',
-        password: 'sai'
+        username: null,
+        password: null
       }
     ]
   },
@@ -20,21 +16,14 @@ export default new Vuex.Store({
     allUsers: (state) => state.users
   },
   mutations: {
-    newUser: (state, user) => state.users.unshift(user)
+    addUser (state, payload) {
+      state.users.username = payload.username
+      state.users.password = payload.password
+    }
   },
   actions: {
     LOGIN: ({ commit }, payload) => {
-      /* return new Promise((resolve, reject) => {
-        axios.post('login_check', payload)
-          .then(({ data, status }) => {
-            if (status === 200) {
-              resolve(true)
-            }
-          })
-          .catch(error => {
-            reject(error)
-          })
-      }) */
+      commit('addUser', payload)
     }
   },
   modules: {
