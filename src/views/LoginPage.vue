@@ -55,8 +55,8 @@ export default ({
             username: username,
             password: password
           })
-          const name = this.$store.state.users.username
-          const password1 = this.$store.state.users.password
+          const name = this.$store.getters.storeUsers.username
+          const password1 = this.$store.getters.storeUsers.password
           console.log(name)
           console.log(password1)
           router.push('info')
