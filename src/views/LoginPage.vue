@@ -59,7 +59,7 @@ export default ({
           const password1 = this.$store.getters.storeUsers.password
           console.log(name)
           console.log(password1)
-          router.push('info')
+          router.push('/about')
         } else {
           console.log('The Username or password is incorrect')
         }

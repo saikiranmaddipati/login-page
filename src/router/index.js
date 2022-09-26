@@ -12,7 +12,7 @@ const routes = [
     component: LoginPage
   },
   {
-    path: '/info',
+    path: '/about',
     name: 'info-page',
     component: InfoPage
   }

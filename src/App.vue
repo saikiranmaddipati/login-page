@@ -1,12 +1,30 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/login">login</router-link>  |
-      <router-link to="/info">Info</router-link>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <a class="navbar-brand" href="#">
+        <h1>post</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <router-link to="/login">Home</router-link> |
+          <router-link to="/about">About</router-link>
+        </div>
+      </div>
     </nav>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'App',
+  components: {
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
