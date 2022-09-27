@@ -28,6 +28,19 @@ export default {
       Axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
         this.postDetails = response.data
       })
+        .catch(function (error) {
+          console.log(error)
+        })
+      Axios.post('https://jsonplaceholder.typicode.com/posts', {
+        firstName: 'saikiran',
+        lastName: 'maddipati'
+      })
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
   }
 }
